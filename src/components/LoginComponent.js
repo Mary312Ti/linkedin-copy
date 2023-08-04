@@ -7,8 +7,10 @@ import {
   Box,
   SvgIcon,
   Typography,
+  Divider,
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+
 import theme from "../styles/theme";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import backgroundIllustration from "../assets/background-auth.svg";
@@ -26,11 +28,62 @@ export default function LoginComponent() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <SvgIcon
-          component={Logo}
-          viewBox="0 0 100 100"
-          sx={{ height: 100, width: 100 }}
-        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            alignItems: "center",
+            placeItems: "center",
+            marginLeft: "5%",
+            margin: "0 5%",
+            padding: "2% 0 10%",
+          }}
+        >
+          <SvgIcon
+            component={Logo}
+            viewBox="0 0 84 21"
+            sx={{
+              width: "84px",
+              height: "21px",
+              color: theme.palette.primary.main,
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "start",
+              alignContent: "start",
+              gap: "15px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "start",
+                alignContent: "start",
+                gap: "15px",
+              }}
+            ></Box>
+            <Button
+              onClick={login}
+              variant="outlined"
+              sx={{ borderRadius: "50px" }}
+            >
+              Присоединиться
+            </Button>
+            <Button
+              onClick={login}
+              variant="contained"
+              sx={{ borderRadius: "50px" }}
+            >
+              Войти
+            </Button>
+          </Box>
+        </Box>
+
         <Grid item xs={6}>
           <Box
             sx={{
@@ -83,10 +136,13 @@ export default function LoginComponent() {
               <Button
                 onClick={login}
                 variant="contained"
-                sx={{ borderRadius: "50px" }}
+                sx={{ borderRadius: "50px", padding: "8px 0" }}
               >
                 Войти
               </Button>
+              <Divider
+              style={{ fontFamily: theme.typography.fontFamily, color: theme.palette.main.main }}
+              >Или</Divider>
             </Box>
             <Box
               sx={{
